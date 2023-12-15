@@ -148,13 +148,15 @@ export const Navbar1 = () => {
             </div>
             {/* 3 3 */}
             <div className="relative">
-              <AiOutlineShoppingCart className="text-[25px] text-[#FFA631]" />
-              <div
-                className="absolute bg-[#103178] text-white  rounded-full w-[20px] text-center h-[20px] 
+              <Link href="/cart">
+                <AiOutlineShoppingCart className="text-[25px] text-[#FFA631]" />
+                <div
+                  className="absolute bg-[#103178] text-white  rounded-full w-[20px] text-center h-[20px] 
               text-[11px] pt-[1px] bottom-3 left-4"
-              >
-                {cartTotalQty}
-              </div>
+                >
+                  {cartTotalQty}
+                </div>
+              </Link>
             </div>
           </div>
 

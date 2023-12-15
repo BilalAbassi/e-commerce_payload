@@ -25,9 +25,13 @@ const TopNavbar = () => {
             <div className="text-[12px] px-6 border-r-[1px] hover:text-[#ff9923]">
               <p>Order Tracking</p>
             </div>
+
             <div className="text-[12px] px-6 border-r-[1px] hover:text-[#ff9923]">
-              <p>Blog</p>
+              <Link href="/shop">
+                <p>Shop</p>
+              </Link>
             </div>
+
             <Link href="/contact">
               <p className="text-[12px] px-6 border-r-[1px] hover:text-[#ff9923]">
                 Contact
