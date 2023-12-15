@@ -6,7 +6,7 @@ import { IoArrowBackCircle } from "react-icons/io5";
 import ItemContent from "./ItemContent";
 
 const CartClient = () => {
-  const { cartProducts, handleClearCart } = useCart();
+  const { cartProducts, handleClearCart, cartTotalAmount } = useCart();
 
   // to check weather there is product in Cart or Not
   if (!cartProducts || cartProducts.length === 0) {
@@ -73,7 +73,7 @@ const CartClient = () => {
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-between font-[700] text-xl">
             <h3>SUBTOTAL</h3>
-            <p>$ 100</p>
+            <p>$ {cartTotalAmount}</p>
           </div>
           <p>Taxes and Shipping calculate at checkout</p>
           <button className="bg-orange-500 hover:bg-[#103178] duration-150 delay-150 transition p-2 font-bold  text-white rounded-full">

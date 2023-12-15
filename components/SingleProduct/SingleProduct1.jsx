@@ -46,11 +46,6 @@ function SingleProduct1({ products }) {
     price: products.price,
   });
 
-  console.log(
-    "this is CartProduc >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..",
-    cartProduct
-  );
-
   // this state is used to tell weather this product is Already In Cart Or Not
   const [isProductInCart, setIsProductCart] = useState(false);
 
@@ -61,18 +56,18 @@ function SingleProduct1({ products }) {
     setcartProduct((pre) => {
       return { ...pre, quantity: pre.quantity + 1 };
     });
-  }, [cartProduct]);
+  }, []);
 
   // for decressing the product quntity
   const handleQtyDecrease = useCallback(() => {
     setcartProduct((pre) => {
       if (pre.quantity === 0) {
-        return { ...pre, quantity: (pre.quantity = 0) };
+        return { ...pre, quantity: (pre.quantity = 1) };
       } else {
         return { ...pre, quantity: pre.quantity - 1 };
       }
     });
-  }, [cartProduct]);
+  }, []);
 
   //--------------------------------------------------------Testing---------------------------------------------------------------------------
 
@@ -82,7 +77,7 @@ function SingleProduct1({ products }) {
 
   console.log("This Is CartProduct>>", cartProduct);
   console.log(
-    "This Is CartProducts>>>>>>>>>>>>>>>>>>>>>ABCDEFGH>>",
+    "This Is CartProducts>>>>>>>>>>>>>>>>>>>>>this is For Products in Cart>>",
     cartProducts
   );
 

@@ -9,13 +9,15 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import Navdropdown from "./Navdropdown";
 import Link from "next/link";
-import SearchBar from "../searchbar/SearchBar";
+import Search from "../Search";
+import { useCart } from "@/Context/useCart";
 
 export const Navbar1 = () => {
   useEffect(() => {
     import("preline");
   }, []);
   const [open, setopen] = useState(false);
+  const { cartTotalQty } = useCart();
 
   return (
     <div className="py-0 hs-accordion-group  ">
@@ -52,7 +54,7 @@ export const Navbar1 = () => {
               <h3 className="text-[15px] font-[600]">Products</h3>
             </button>
 
-            <SearchBar />
+            <Search />
           </div>
 
           {/* 3 */}
@@ -138,26 +140,22 @@ export const Navbar1 = () => {
             </Link>
 
             {/* 4 2 */}
-
             <div className="relative flex">
               <AiOutlineHeart className="text-[25px] text-[#FFA631]" />
               <div className="absolute bg-[#103178] text-white  rounded-full w-[20px] text-center h-[20px] text-[11px] pt-[1px] bottom-3 left-4">
                 0
               </div>
             </div>
-
             {/* 3 3 */}
-            <Link href="/cart" className=" cursor-pointer  ">
-              <div className="relative">
-                <AiOutlineShoppingCart className="text-[25px] text-[#FFA631]" />
-                <div
-                  className="absolute bg-[#103178] text-white  rounded-full w-[20px] text-center h-[20px] 
+            <div className="relative">
+              <AiOutlineShoppingCart className="text-[25px] text-[#FFA631]" />
+              <div
+                className="absolute bg-[#103178] text-white  rounded-full w-[20px] text-center h-[20px] 
               text-[11px] pt-[1px] bottom-3 left-4"
-                >
-                  0
-                </div>
+              >
+                {cartTotalQty}
               </div>
-            </Link>
+            </div>
           </div>
 
           {/* for mobile */}

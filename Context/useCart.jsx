@@ -5,7 +5,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useReducer,
   useState,
 } from "react";
 
@@ -17,7 +16,7 @@ const Context = createContext();
 export const Provider = ({ children }) => {
   // const [product, dispatch] = useReducer(Reducer, initialstate);
   // This is used to set the quntitiy
-  const [cartTotalQty, setCartTotalQty] = useState(10);
+  const [cartTotalQty, setCartTotalQty] = useState(0);
   // this state will have all the products which are In Cart
   const [cartProducts, setCartProducts] = useState(null);
   // this state will be used to contain the total amout of products
@@ -142,6 +141,43 @@ export const Provider = ({ children }) => {
     localStorage.setItem("eShopCartItems", JSON.stringify(null));
     alert("Your Cart Has Been Clear");
   }, [cartProducts]);
+
+  // for getting total amout and quantity
+  useEffect(() => {
+    const getTotals = () => {
+      if (cartProducts) {
+        const { total, qty } = cartProducts?.reduce(
+          (acc, item) => {
+            const itemTotal = item.price * item.quantity;
+
+            acc.total = acc.total + itemTotal;
+            acc.qty = acc.qty + item.quantity;
+
+            return acc;
+          },
+
+          {
+            total: 0,
+            qty: 0,
+          }
+        );
+        setCartTotalQty(qty);
+        setTotalAmount(total);
+      }
+    };
+
+    getTotals();
+  }, [cartProducts]);
+
+  console.log(
+    "total_Quntity----------------------------------------->",
+    cartTotalQty
+  );
+  console.log(
+    "total_Amount------------------------------------------>",
+    cartTotalAmount
+  );
+  // end  Total Amonut
 
   //-----------------------------------------------------------Provider----------------------------------//
   return (

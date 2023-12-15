@@ -22,14 +22,16 @@ export default function RootLayout({ children }) {
     <html lang="en" className={jost.className}>
       <body className="relative">
         <Provider>
-          <TopNavbar />
-          <Navbar1 />
+          <Store>
+            <TopNavbar />
+            <Navbar1 />
 
-          {children}
+            {children}
 
-          <Mobile_Nav />
+            <Mobile_Nav />
 
-          <Footer />
+            <Footer />
+          </Store>
         </Provider>
       </body>
     </html>

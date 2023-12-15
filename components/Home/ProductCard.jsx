@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillStar, AiOutlineHeart, AiOutlineSearch } from "react-icons/ai";
 import { BsFilterLeft, BsFillCartPlusFill } from "react-icons/bs";
+import Rating_Star from "../Shop/Rating_Star";
 const ProductCard = ({ product }) => {
   return (
     // main div
@@ -36,11 +37,7 @@ const ProductCard = ({ product }) => {
       </p>
       {/* star div */}
       <div className="flex pt-[7px] pb-[20px] md:pl-3">
-        <AiFillStar className="text-[#FF9923]" />
-        <AiFillStar className="text-[#FF9923]" />
-        <AiFillStar className="text-[#FF9923]" />
-        <AiFillStar className="text-[#FF9923]" />
-        <AiFillStar className="text-[#FF9923]" />
+        <Rating_Star rating={product.rating} />
       </div>
     </div>
   );
